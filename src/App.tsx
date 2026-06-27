@@ -331,7 +331,7 @@ export default function App() {
   const [aiChatHistory, setAiChatHistory] = useState([
     { 
       role: 'assistant', 
-      text: 'Xin chào Ban chỉ đạo Phường Long Xuyên! Tôi là Trợ lý AI Điều Hành DECC. Tôi đã đối soát hoàn chỉnh cả 2 Tầng dữ liệu: Tầng 1 (Chuẩn Phường/Xã 2.0 - DEI 76%) và Tầng 2 (Hệ sinh thái Kinh tế số). Sẵn sàng đồng hành cùng lãnh đạo để phân tích mâu thuẫn hệ thống và ra quyết định chính xác nhất.',
+      text: 'Xin chào Ban chỉ đạo Tỉnh An Giang! Tôi là Trợ lý AI Điều Hành DECC. Tôi đã đối soát hoàn chỉnh cả 2 Tầng dữ liệu: Tầng 1 (Chuẩn Phường/Xã 2.0 - DEI 76%) và Tầng 2 (Hệ sinh thái Kinh tế số). Sẵn sàng đồng hành cùng lãnh đạo để phân tích mâu thuẫn hệ thống và ra quyết định chính xác nhất.',
       timestamp: '07:41'
     }
   ]);
@@ -432,13 +432,13 @@ export default function App() {
     setGeneratedIssuePolicy('');
     const apiKey = "";
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-    const payload = { contents: [{ parts: [{ text: "Soạn một quyết định hành chính ngắn gọn để khắc phục điểm nghẽn đào tạo chuyển đổi số tại Phường Long Xuyên." }] }] };
+    const payload = { contents: [{ parts: [{ text: "Soạn một quyết định hành chính ngắn gọn để khắc phục điểm nghẽn đào tạo chuyển đổi số tại tỉnh An Giang." }] }] };
     try {
       const response = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
       const data = await response.json();
       setGeneratedIssuePolicy(data.candidates?.[0]?.content?.parts?.[0]?.text || "Lỗi AI");
     } catch (err) {
-      setGeneratedIssuePolicy(`**ỦY BAN NHÂN DÂN PHƯỜNG LONG XUYÊN**\n**QUYẾT ĐỊNH:**\nĐiều 1. Khẩn trương mở 5 khóa đào tạo công nghệ trong tháng này để giải quyết tình trạng thiếu hụt năng lực.`);
+      setGeneratedIssuePolicy(`**ỦY BAN NHÂN DÂN tỉnh An Giang**\n**QUYẾT ĐỊNH:**\nĐiều 1. Khẩn trương mở 5 khóa đào tạo công nghệ trong tháng này để giải quyết tình trạng thiếu hụt năng lực.`);
     } finally { setIsGeneratingPolicy(false); }
   };
 
@@ -470,7 +470,7 @@ export default function App() {
           <div>
             <div className="flex items-center gap-2">
               <span className="text-[10px] bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider flex items-center gap-1">
-                <span className="h-1.5 w-1.5 rounded-full bg-cyan-400"></span> PHƯỜNG LONG XUYÊN - DECC COCKPIT
+                <span className="h-1.5 w-1.5 rounded-full bg-cyan-400"></span> TỈNH AN GIANG - DECC COCKPIT
               </span>
             </div>
             <h1 className="text-xl md:text-2xl font-black tracking-tight bg-gradient-to-r from-white via-cyan-100 to-[#00C2FF] bg-clip-text text-transparent">
@@ -517,8 +517,8 @@ export default function App() {
           </div>
 
           <div className="px-3 py-2 bg-[#122A4E]/30 rounded-xl border border-cyan-500/5 mb-3">
-            <span className="text-[10px] text-slate-400 block uppercase font-bold mb-1">Địa bàn Phường:</span>
-            <span className="text-xs font-semibold text-cyan-400">Mỹ Bình • Mỹ Long • Mỹ Phước • Mỹ Quý</span>
+            <span className="text-[10px] text-slate-400 block uppercase font-bold mb-1">Địa bàn tỉnh:</span>
+            <span className="text-xs font-semibold text-cyan-400">An Giang</span>
           </div>
 
           {[
