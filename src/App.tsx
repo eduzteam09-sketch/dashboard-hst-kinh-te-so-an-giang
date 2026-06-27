@@ -677,6 +677,31 @@ export default function App() {
                       ))}
                     </div>
                   </div>
+                  <span className="text-[10px] text-slate-400 font-bold block uppercase mb-3 pt-4 border-t border-cyan-500/10">BIỂU ĐỒ TỈ LỆ CƠ CẤU ĐƠN VỊ KINH DOANH:</span>
+                  {/* Thanh Stacked Bar cho B1 */}
+                  <div className="w-full h-8 bg-[#07111F] rounded-md overflow-hidden flex shadow-inner border border-cyan-500/10">
+                    {currentZoneData.b1.total > 0 ? (
+                      <>
+                        <div className="bg-cyan-500 h-full flex items-center justify-center text-[10px] font-bold text-slate-900" style={{width: `${(currentZoneData.b1.dn_total / currentZoneData.b1.total)*100}%`}}>
+                           {currentZoneData.b1.dn_total > 0 && `DN (${((currentZoneData.b1.dn_total / currentZoneData.b1.total)*100).toFixed(0)}%)`}
+                        </div>
+                        <div className="bg-emerald-500 h-full flex items-center justify-center text-[10px] font-bold text-slate-900" style={{width: `${(currentZoneData.b1.hkd_total / currentZoneData.b1.total)*100}%`}}>
+                           {currentZoneData.b1.hkd_total > 0 && `HKD (${((currentZoneData.b1.hkd_total / currentZoneData.b1.total)*100).toFixed(0)}%)`}
+                        </div>
+                        <div className="bg-indigo-500 h-full flex items-center justify-center text-[10px] font-bold text-slate-900" style={{width: `${(currentZoneData.b1.htx_total / currentZoneData.b1.total)*100}%`}}>
+                           {currentZoneData.b1.htx_total > 0 && `HTX (${((currentZoneData.b1.htx_total / currentZoneData.b1.total)*100).toFixed(0)}%)`}
+                        </div>
+                      </>
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-[10px] text-slate-500">Chưa có dữ liệu</div>
+                    )}
+                  </div>
+                  {/* Chú thích phía dưới */}
+                  <div className="flex items-center justify-center gap-4 mt-3">
+                    <div className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-cyan-500"></span><span className="text-[9px] text-slate-300">{currentZoneData.b1.dn_total} DN</span></div>
+                    <div className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-emerald-500"></span><span className="text-[9px] text-slate-300">{currentZoneData.b1.hkd_total} HKD</span></div>
+                    <div className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-indigo-500"></span><span className="text-[9px] text-slate-300">{currentZoneData.b1.htx_total} HTX</span></div>
+                  </div>
                 </div>
 
                 {/* B2. THÔNG TIN SẢN PHẨM */}
